@@ -3,11 +3,8 @@ from __future__ import division, absolute_import, print_function
 import warnings
 
 import numpy as np
-import numpy.distutils.system_info
 
 from numpy.distutils.system_info import (system_info,
-                                         numpy_info,
-                                         NotFoundError,
                                          BlasNotFoundError,
                                          LapackNotFoundError,
                                          AtlasNotFoundError,

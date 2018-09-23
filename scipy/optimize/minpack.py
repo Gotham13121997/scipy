@@ -235,16 +235,16 @@ def _root_hybr(func, x0, args=(), jac=None,
     errors = {0: "Improper input parameters were entered.",
               1: "The solution converged.",
               2: "The number of calls to function has "
-                  "reached maxfev = %d." % maxfev,
+                 "reached maxfev = %d." % maxfev,
               3: "xtol=%f is too small, no further improvement "
-                  "in the approximate\n  solution "
-                  "is possible." % xtol,
+                 "in the approximate\n  solution "
+                 "is possible." % xtol,
               4: "The iteration is not making good progress, as measured "
-                  "by the \n  improvement from the last five "
-                  "Jacobian evaluations.",
+                 "by the \n  improvement from the last five "
+                 "Jacobian evaluations.",
               5: "The iteration is not making good progress, "
-                  "as measured by the \n  improvement from the last "
-                  "ten iterations.",
+                 "as measured by the \n  improvement from the last "
+                 "ten iterations.",
               'unknown': "An error occurred."}
 
     info = retval[1]
@@ -389,7 +389,7 @@ def leastsq(func, x0, args=(), Dfun=None, full_output=0,
         epsfcn = finfo(dtype).eps
     if Dfun is None:
         if maxfev == 0:
-            maxfev = 200*(n + 1)
+            maxfev = 200 * (n + 1)
         retval = _minpack._lmdif(func, x0, args, full_output, ftol, xtol,
                                  gtol, maxfev, epsfcn, factor, diag)
     else:
@@ -717,7 +717,7 @@ def curve_fit(f, xdata, ydata, p0=None, sigma=None, absolute_sigma=False,
         sigma = np.asarray(sigma)
 
         # if 1-d, sigma are errors, define transform = 1/sigma
-        if sigma.shape == (ydata.size, ):
+        if sigma.shape == (ydata.size,):
             transform = 1.0 / sigma
         # if 2-d, sigma is the covariance matrix,
         # define transform = L such that L L^T = C
@@ -765,7 +765,7 @@ def curve_fit(f, xdata, ydata, p0=None, sigma=None, absolute_sigma=False,
         threshold = np.finfo(float).eps * max(res.jac.shape) * s[0]
         s = s[s > threshold]
         VT = VT[:s.size]
-        pcov = np.dot(VT.T / s**2, VT)
+        pcov = np.dot(VT.T / s ** 2, VT)
         return_full = False
 
     warn_cov = False
