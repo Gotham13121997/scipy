@@ -5,6 +5,8 @@ import warnings
 import numpy as np
 
 from numpy.distutils.system_info import (system_info,
+										 numpy_info,
+										 NotFoundError,
                                          BlasNotFoundError,
                                          LapackNotFoundError,
                                          AtlasNotFoundError,
